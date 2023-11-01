@@ -161,6 +161,7 @@ public class NativeBiometric: CAPPlugin {
         let query: [String: Any] = [kSecClass as String: kSecClassInternetPassword,
                                     kSecAttrAccount as String: credentials.username,
                                     kSecAttrServer as String: server,
+                                    kSecAttrAccessible as String: kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
                                     kSecValueData as String: credentials.password.data(using: .utf8)!]
 
         let status = SecItemAdd(query as CFDictionary, nil)
@@ -172,6 +173,7 @@ public class NativeBiometric: CAPPlugin {
     // Update user Credentials in Keychain
     func updateCredentialsInKeychain(_ credentials: Credentials, _ server: String) throws {
         let query: [String: Any] = [kSecClass as String: kSecClassInternetPassword,
+                                    kSecAttrAccessible as String: kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
                                     kSecAttrServer as String: server]
 
         let account = credentials.username
