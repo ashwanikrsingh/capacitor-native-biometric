@@ -1,5 +1,5 @@
 {
-  "name": "@capgo/capacitor-native-biometric",
+  "name": "@banksapi/capacitor-native-biometric",
   "version": "5.1.0",
   "description": "This plugin gives access to the native biometric apis for android and iOS",
   "main": "dist/esm/index.js",
